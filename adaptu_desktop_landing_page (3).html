@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaptU - Upgrade Soft Skill & Circle Kampus</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            cream: '#FDF9F1',
+                            orange: '#F58220', /* Disesuaikan dengan oranye logo */
+                            orangeHover: '#E06D10',
+                            navy: '#1A4373', /* Disesuaikan dengan biru navy logo */
+                            green: '#B8D433', /* Disesuaikan dengan hijau limau logo */
+                            greenHover: '#9FBA22'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FDF9F1; }
+        
+        /* Hide scrollbar for a cleaner mockup */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Toast Animation */
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .toast-animate {
+            animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased overflow-x-hidden bg-brand-cream">
+
+    <!-- Navbar (Expanded for Desktop) -->
+    <nav class="fixed top-0 inset-x-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-orange-100/50 transition-all py-4">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <img src="au_logo_transparent.png" alt="AdaptU Logo" class="h-10 w-auto object-contain">
+                <span class="font-extrabold text-brand-navy text-2xl tracking-tight mt-1">AdaptU</span>
+            </div>
+            
+            <!-- Desktop Menu Links -->
+            <div class="hidden lg:flex items-center gap-8 font-semibold text-brand-navy/80 text-sm">
+                <a href="#fitur" class="hover:text-brand-orange transition-colors">Fitur Utama</a>
+                <a href="#mentor" class="hover:text-brand-orange transition-colors">Mentor Mapres</a>
+                <a href="#komunitas" class="hover:text-brand-orange transition-colors">Komunitas</a>
+                <a href="#testimoni" class="hover:text-brand-orange transition-colors">Testimoni</a>
+            </div>
+
+            <!-- CTA -->
+            <a href="#download" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg shadow-orange-500/30 hover:-translate-y-0.5">
+                GABUNG SEKARANG
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Desktop Grid Layout) -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Left Content: Copywriting -->
+            <div class="relative z-10 text-center lg:text-left">
+                <div class="inline-block bg-orange-100 text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 border border-orange-200">
+                    ✨ #1 Platform Soft Skill Mahasiswa
+                </div>
+                <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-brand-navy leading-[1.1] mb-6">
+                    IPK Tinggi Aja Gak Cukup? <br>
+                    <span class="text-brand-orange relative inline-block mt-2">
+                        Upgrade Soft Skill Lo!
+                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-brand-green -z-10" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" stroke-width="8" fill="none"/></svg>
+                    </span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Kuasai public speaking, kepemimpinan, dan bahasa asing bareng Mentor Mapres. Dapatkan akses ke grup Maba, info cafe nugas, hingga beasiswa dalam satu aplikasi.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                    <a href="#download" class="w-full sm:w-auto bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl shadow-orange-500/30 hover:-translate-y-1">
+                        Mulai Upgrade Diri 🚀
+                    </a>
+                    <a href="#fitur" class="w-full sm:w-auto bg-brand-green hover:bg-brand-greenHover text-brand-navy px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl shadow-brand-green/30 hover:-translate-y-1 border border-brand-greenHover/50">
+                        Lihat Fitur
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="mt-10 flex items-center justify-center lg:justify-start gap-4">
+                    <div class="flex -space-x-3">
+                        <div class="w-10 h-10 rounded-full border-2 border-brand-cream bg-blue-200 flex justify-center items-center text-lg z-30">👨‍🎓</div>
+                        <div class="w-10 h-10 rounded-full border-2 border-brand-cream bg-pink-200 flex justify-center items-center text-lg z-20">👩‍🎓</div>
+                        <div class="w-10 h-10 rounded-full border-2 border-brand-cream bg-green-200 flex justify-center items-center text-lg z-10">🧑‍🎓</div>
+                    </div>
+                    <div class="text-sm font-semibold text-slate-600">
+                        Dipercaya <span class="text-brand-navy font-extrabold">5.000+</span> Mahasiswa se-Indonesia
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content: Interactive App Mockup with Floating Elements -->
+            <div class="relative lg:h-[650px] flex justify-center items-center mt-12 lg:mt-0">
+                
+                <!-- Floating Badges (Desktop Only) -->
+                <div class="hidden lg:flex absolute top-10 -left-12 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 items-center gap-3 animate-float z-20">
+                    <div class="w-10 h-10 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center text-xl">🏆</div>
+                    <div>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase">Mentor Verified</p>
+                        <p class="text-sm font-extrabold text-brand-navy">Juara Debat Nasional</p>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex absolute bottom-20 -right-8 bg-brand-navy p-4 rounded-2xl shadow-2xl border border-slate-700 items-center gap-3 animate-float-delayed z-20">
+                    <div class="w-10 h-10 bg-white/20 text-white rounded-full flex items-center justify-center text-xl">💬</div>
+                    <div>
+                        <p class="text-[10px] text-slate-300 font-bold uppercase">Circle Baru</p>
+                        <p class="text-sm font-extrabold text-white">240+ Maba Aktif</p>
+                    </div>
+                </div>
+
+                <!-- Smartphone Mockup -->
+                <div class="relative w-[300px] h-[600px] border-[12px] border-slate-800 rounded-[3rem] bg-slate-50 shadow-2xl overflow-hidden z-10 bg-white">
+                    
+                    <!-- Notch -->
+                    <div class="absolute top-0 inset-x-0 h-6 bg-slate-800 rounded-b-2xl w-40 mx-auto z-30"></div>
+                    
+                    <!-- In-App Toast Notification -->
+                    <div id="appToast" class="absolute top-8 left-4 right-4 bg-brand-navy text-white p-3 rounded-xl shadow-2xl z-40 text-xs font-medium flex items-center gap-2 hidden border border-slate-700">
+                        <span class="text-green-400 text-base">✅</span> 
+                        <span id="toastMsg" class="flex-1">Sesi berhasil dibooking!</span>
+                    </div>
+
+                    <!-- App Content Container -->
+                    <div class="h-full overflow-y-auto pb-20 pt-10 px-4 hide-scrollbar relative z-10">
+                        
+                        <!-- TAB 1: DASHBOARD MENTORING -->
+                        <div id="view-dashboard" class="fade-in block">
+                            <!-- App Header -->
+                            <div class="mb-5 flex justify-between items-end">
+                                <div>
+                                    <p class="text-[10px] text-slate-500 font-semibold mb-1">Hai, Welcome back</p>
+                                    <h2 class="text-xl font-bold text-brand-navy leading-none">Maba Ambis 🔥</h2>
+                                </div>
+                                <div class="w-8 h-8 bg-brand-cream rounded-full flex items-center justify-center text-sm shadow-inner border border-slate-200">
+                                    🧑‍🎓
+                                </div>
+                            </div>
+
+                            <!-- Dashboard Mentoring Mockup -->
+                            <h3 class="font-extrabold text-brand-navy text-sm mb-2">Dashboard Mentoring</h3>
+                            <div class="bg-gradient-to-br from-brand-navy to-indigo-800 p-4 rounded-xl text-white shadow-lg mb-5 relative overflow-hidden">
+                                <div class="absolute -right-4 -top-4 w-16 h-16 bg-white/10 rounded-full blur-md"></div>
+                                <p class="text-[9px] text-indigo-200 font-bold tracking-wider mb-1">SESI MENDATANG</p>
+                                <h4 class="text-sm font-extrabold mb-2">Simulasi Public Speaking</h4>
+                                <div class="flex items-center gap-2 text-[10px] mb-3">
+                                    <span class="bg-white/20 px-2 py-1 rounded backdrop-blur-sm">📅 Hari ini, 15:00</span>
+                                    <span class="bg-white/20 px-2 py-1 rounded backdrop-blur-sm">🎥 GMeet</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 rounded-full bg-brand-orange flex items-center justify-center text-[10px] border border-white/20">🎤</div>
+                                    <span class="text-[10px] font-medium">Mentor: Dimas P.</span>
+                                </div>
+                                <button class="mt-3 w-full bg-brand-orange hover:bg-brand-orangeHover transition-colors text-white text-[10px] font-bold py-2 rounded-lg shadow-md">Join Room Sekarang</button>
+                            </div>
+
+                            <!-- Top Mentors Quick List -->
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="font-extrabold text-brand-navy text-sm">Top Mentor Soft Skill</h3>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm flex items-center gap-3">
+                                <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-xl relative">
+                                    🇬🇧
+                                    <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-brand-green border-2 border-white rounded-full"></div>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-xs font-extrabold text-brand-navy">Sarah A.</h4>
+                                    <p class="text-[9px] text-slate-500 font-medium">English & Essay</p>
+                                </div>
+                                <button onclick="bookMentor('Sarah', this)" class="bg-brand-cream text-brand-orange px-3 py-1.5 rounded-lg text-[9px] font-bold hover:bg-brand-orange hover:text-white transition-colors border border-orange-100">Booking</button>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: CHAT & GRUP -->
+                        <div id="view-chat" class="fade-in hidden">
+                            <h2 class="text-lg font-bold text-brand-navy mb-4">Pesan & Komunitas</h2>
+
+                            <!-- Contoh Percakapan Mentor -->
+                            <h3 class="text-xs font-extrabold text-slate-500 mb-2 uppercase tracking-wide">Sesi Mentoring</h3>
+                            <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm mb-5">
+                                <div class="flex items-center gap-2 mb-3 border-b border-slate-100 pb-2">
+                                    <div class="w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center text-sm shadow-inner">🎤</div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-brand-navy">Dimas P. (Mentor)</h4>
+                                        <p class="text-[9px] text-brand-green font-semibold">● Sedang mengetik...</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-end">
+                                        <div class="bg-brand-navy text-white text-[10px] p-2.5 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm leading-relaxed">
+                                            Kak, aku sering ngeblank kalau ditanya dosen pas presentasi. Tipsnya dong? 😭
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start">
+                                        <div class="bg-slate-100 text-slate-700 text-[10px] p-2.5 rounded-2xl rounded-tl-sm max-w-[85%] border border-slate-200 leading-relaxed">
+                                            Tarik napas panjang dulu. Bikin "jembatan kata" kaya "Pertanyaan yang bagus, izinkan saya menjawab...". Nanti jam 3 sore kita simulasi ya biar kamu terbiasa! 👍
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 relative">
+                                    <input type="text" placeholder="Balas pesan..." class="w-full bg-slate-50 border border-slate-200 rounded-full py-1.5 px-3 text-[10px] outline-none focus:border-brand-orange" disabled>
+                                    <span class="absolute right-3 top-1.5 text-brand-orange text-xs">➤</span>
+                                </div>
+                            </div>
+
+                            <!-- Contoh Percakapan Grup WA -->
+                            <h3 class="text-xs font-extrabold text-slate-500 mb-2 uppercase tracking-wide">Grup Kampus</h3>
+                            <div class="bg-white border border-slate-200 rounded-xl p-3 shadow-sm">
+                                <div class="flex items-center gap-2 mb-3 border-b border-slate-100 pb-2">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm shadow-inner">👥</div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-brand-navy">Maba Fak. Teknik '26</h4>
+                                        <p class="text-[9px] text-slate-500">240 Anggota</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-start">
+                                        <div class="bg-slate-100 text-slate-700 text-[10px] p-2 rounded-2xl rounded-tl-sm max-w-[85%] border border-slate-200">
+                                            <span class="text-[9px] font-bold text-orange-600 block mb-0.5">~ Rania M.</span>
+                                            Eh guys, besok kumpul ospek jam berapa ya di lapangan rektorat?
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start">
+                                        <div class="bg-slate-100 text-slate-700 text-[10px] p-2 rounded-2xl rounded-tl-sm max-w-[85%] border border-slate-200">
+                                            <span class="text-[9px] font-bold text-blue-600 block mb-0.5">~ Fahri (Kating)</span>
+                                            Jam 6 pagi udah standby ya dekk, jgn lupa bawa nametag sama buku panduan! 📌
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-end">
+                                        <div class="bg-brand-green text-white text-[10px] p-2 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm">
+                                            Siapp kakk, otw nyiapin perlengkapan nih 🏃‍♂️💨
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 3: CAMPUS HACKS -->
+                        <div id="view-hacks" class="fade-in hidden">
+                            <h2 class="text-lg font-bold text-brand-navy mb-4">Campus Hacks 📍</h2>
+                            
+                            <!-- Filter Pills -->
+                            <div class="flex gap-2 mb-4 overflow-x-auto hide-scrollbar">
+                                <span class="bg-brand-navy text-white text-[10px] px-3 py-1 rounded-full whitespace-nowrap cursor-pointer">Semua</span>
+                                <span class="bg-slate-100 text-slate-600 text-[10px] px-3 py-1 rounded-full whitespace-nowrap border border-slate-200 cursor-pointer hover:bg-slate-200">Tempat Nugas</span>
+                                <span class="bg-slate-100 text-slate-600 text-[10px] px-3 py-1 rounded-full whitespace-nowrap border border-slate-200 cursor-pointer hover:bg-slate-200">Kost Murah</span>
+                            </div>
+
+                            <!-- Card Cafe Nugas -->
+                            <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm mb-4 group cursor-pointer hover:shadow-md transition-shadow">
+                                <div class="relative">
+                                    <img src="https://placehold.co/600x300/FDF9F1/FF5C00?text=Kopi+Seni+Campus" alt="Cafe Kopi Seni" class="w-full h-28 object-cover">
+                                    <div class="absolute top-2 right-2 bg-white/90 backdrop-blur text-brand-orange text-[9px] font-bold px-2 py-1 rounded-md shadow-sm">☕ Cafe</div>
+                                </div>
+                                <div class="p-3">
+                                    <div class="flex justify-between items-start mb-1.5">
+                                        <h4 class="text-xs font-bold text-brand-navy">Kopi Seni (Spot Nugas)</h4>
+                                        <span class="text-[9px] bg-orange-100 text-brand-orange px-1.5 py-0.5 rounded font-bold border border-orange-200">Promo Maba</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-500 leading-tight">WiFi kenceng, colokan tiap meja, diskon 15% tunjukin KTM. Jarak 500m dari gerbang depan teknik.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card Info Kost -->
+                            <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm group cursor-pointer hover:shadow-md transition-shadow">
+                                <div class="relative">
+                                    <img src="https://placehold.co/600x300/E0F2FE/0369A1?text=Kost+Puri+Indah" alt="Kost Puri Indah" class="w-full h-28 object-cover">
+                                    <div class="absolute top-2 right-2 bg-white/90 backdrop-blur text-blue-600 text-[9px] font-bold px-2 py-1 rounded-md shadow-sm">🏠 Kost</div>
+                                </div>
+                                <div class="p-3">
+                                    <div class="flex justify-between items-start mb-1.5">
+                                        <h4 class="text-xs font-bold text-brand-navy">Kost Putra Puri Indah</h4>
+                                        <span class="text-[9px] bg-brand-green/10 text-brand-green px-1.5 py-0.5 rounded font-bold border border-green-200">Sisa 2 Kamar</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-500 leading-tight">Rp 800k/bulan. Free WiFi, dapur bersama, kamar mandi dalam. Cuma 5 menit jalan kaki ke kampus.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- App Bottom Nav -->
+                    <div class="absolute bottom-0 inset-x-0 h-16 bg-white/95 backdrop-blur-md border-t border-slate-200 flex justify-around items-center z-20 px-2 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+                        <div onclick="switchMockupTab('dashboard')" id="tab-dashboard" class="flex flex-col items-center text-brand-orange cursor-pointer transition-colors w-1/4">
+                            <span class="text-xl leading-none mb-1">🏠</span>
+                            <span class="text-[9px] font-extrabold mt-0.5">Home</span>
+                        </div>
+                        <div onclick="switchMockupTab('chat')" id="tab-chat" class="flex flex-col items-center text-slate-400 hover:text-brand-navy cursor-pointer transition-colors relative w-1/4">
+                            <span class="text-xl leading-none mb-1">💬</span>
+                            <span class="text-[9px] font-extrabold mt-0.5">Chat</span>
+                            <div class="absolute top-0 right-[25%] w-2.5 h-2.5 bg-brand-orange border-2 border-white rounded-full shadow-sm"></div>
+                        </div>
+                        <div onclick="switchMockupTab('hacks')" id="tab-hacks" class="flex flex-col items-center text-slate-400 hover:text-brand-navy cursor-pointer transition-colors w-1/4">
+                            <span class="text-xl leading-none mb-1">🧭</span>
+                            <span class="text-[9px] font-extrabold mt-0.5">Hacks</span>
+                        </div>
+                        <div class="flex flex-col items-center text-slate-400 hover:text-brand-navy cursor-pointer transition-colors w-1/4">
+                            <span class="text-xl leading-none mb-1">👤</span>
+                            <span class="text-[9px] font-extrabold mt-0.5">Profile</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Decorative Blur behind mockup -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-orange-300 rounded-full filter blur-[100px] opacity-30 -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section (Dark Navy) -->
+    <section class="bg-brand-navy py-24 relative z-10 mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">Vibe Check: Sering Ngerasain Ini Gak?</h2>
+                <p class="text-slate-300 text-base">Pinter akademik aja gak cukup. Di kampus, lo butuh mental berani bicara, relasi yang luas, dan informasi yang cepet.</p>
+            </div>
+
+            <!-- Horizontal Grid for Desktop -->
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Point 1 -->
+                <div class="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-3xl p-8 hover:bg-slate-800 transition-colors">
+                    <div class="w-14 h-14 bg-rose-500/20 text-rose-400 rounded-2xl flex items-center justify-center text-3xl mb-6">🥶</div>
+                    <h3 class="font-bold text-white text-xl mb-3">Presentasi Gemeter & Nge-blank?</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">Kurang percaya diri saat ditunjuk dosen atau presentasi tugas kelompok di depan kelas.</p>
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-brand-green block mb-1">👉 Solusi AdaptU:</span>
+                        <p class="text-xs text-slate-300">Mentoring 1-on-1 *Public Speaking* langsung sama mahasiswa Juara Debat / Mapres.</p>
+                    </div>
+                </div>
+                
+                <!-- Point 2 -->
+                <div class="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-3xl p-8 hover:bg-slate-800 transition-colors">
+                    <div class="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center text-3xl mb-6">📉</div>
+                    <h3 class="font-bold text-white text-xl mb-3">Kudet Info Lomba & Beasiswa?</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">Temen-temen udah pada daftar kepanitiaan dan beasiswa, sedangkan lo gatau infonya darimana.</p>
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-brand-green block mb-1">👉 Solusi AdaptU:</span>
+                        <p class="text-xs text-slate-300">Akses instan ke Group Chat Maba & Kating yang selalu update info kampus terpenting.</p>
+                    </div>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-3xl p-8 hover:bg-slate-800 transition-colors">
+                    <div class="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6">🕸️</div>
+                    <h3 class="font-bold text-white text-xl mb-3">Bosen Nugas & Cari Kost Susah?</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">Sebagai mahasiswa rantau, bingung cari tempat fotokopi murah, warteg enak, atau cafe nugas yang pewe.</p>
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-brand-green block mb-1">👉 Solusi AdaptU:</span>
+                        <p class="text-xs text-slate-300">Fitur *Campus Hacks* ngasih lo panduan lokal dan rekomendasi tempat penting sekitar kampus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features (Zig-Zag Layout) -->
+    <section class="py-24 bg-white" id="fitur">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-navy mb-4">Semua yang Lo Butuhin Buat Set-Up Masa Kuliah</h2>
+                <p class="text-slate-600 text-base">Platform all-in-one yang fokus bikin lo survive dan berprestasi di kampus.</p>
+            </div>
+
+            <!-- Feature 1: Dashboard Mentoring -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
+                <div class="order-2 lg:order-1">
+                    <div class="w-16 h-16 bg-orange-100 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-6">🧠</div>
+                    <h3 class="text-3xl font-extrabold text-brand-navy mb-4">Dashboard Mentoring 1-on-1</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Temukan Mentor Mapres yang pas buat lo. Atur jadwal, video call langsung, dan tracking progress soft skill lo (Public Speaking, Bahasa, Kepemimpinan) di satu dashboard rapi.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-brand-green text-white flex items-center justify-center text-xs">✓</span> Booking sesi instan tanpa ribet
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-brand-green text-white flex items-center justify-center text-xs">✓</span> Terhubung via Video Call Terintegrasi
+                        </li>
+                    </ul>
+                    <a href="#download" class="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-4 transition-all">
+                        Eksplor Daftar Mentor <span class="text-xl">→</span>
+                    </a>
+                </div>
+                <div class="order-1 lg:order-2 bg-brand-cream rounded-[2.5rem] p-8 lg:p-12 relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-green/20 to-transparent opacity-50 rounded-[2.5rem]"></div>
+                    <!-- Contoh Gambar Dashboard Mentoring -->
+                    <img src="https://placehold.co/800x600/1A4373/FFFFFF?text=Dashboard+Mentoring%5Cn(List+Mentor,+Jadwal+Sesi,+%26+Video+Call)" alt="Dashboard Mentoring Mockup" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover border border-slate-200">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-3 z-20">
+                        <div class="text-3xl">🌟</div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-bold">Rating Mentor</p>
+                            <p class="text-xl font-extrabold text-brand-navy">4.9 / 5.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Group Chat Maba -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
+                <div class="bg-brand-cream rounded-[2.5rem] p-8 lg:p-12 relative">
+                    <div class="absolute inset-0 bg-gradient-to-bl from-brand-orange/20 to-transparent opacity-50 rounded-[2.5rem]"></div>
+                    <!-- Contoh Gambar Group Chat -->
+                    <img src="https://placehold.co/800x600/FDF9F1/F58220?text=Group+Chat+UI%5Cn(Diskusi+Maba,+Tanya+Kating,+Sharing+Info)" alt="Group Chat UI" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover border border-slate-200">
+                    <div class="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-3 z-20">
+                        <div class="text-3xl">💬</div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-bold">Aktif 24/7</p>
+                            <p class="text-xl font-extrabold text-brand-navy">Grup Maba '26</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="w-16 h-16 bg-blue-100 text-brand-navy rounded-2xl flex items-center justify-center text-3xl mb-6">🔗</div>
+                    <h3 class="text-3xl font-extrabold text-brand-navy mb-4">Grup Chat & Komunitas</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Gak perlu takut sendirian. Sekali klik langsung masuk ke dalam grup obrolan sesama mahasiswa satu fakultas atau minat. Bahas tugas, cari temen mabar, atau nanya kating.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs">✓</span> Terbagi per Fakultas & Minat (UKM)
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs">✓</span> Lingkungan diskusi yang aman & anti-toxic
+                        </li>
+                    </ul>
+                    <a href="#download" class="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-4 transition-all">
+                        Gabung Komunitas <span class="text-xl">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Feature 3: Campus Hacks (Baru/Dipisah) -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="w-16 h-16 bg-brand-green/20 text-brand-green rounded-2xl flex items-center justify-center text-3xl mb-6">📍</div>
+                    <h3 class="text-3xl font-extrabold text-brand-navy mb-4">Campus Hacks & Info Update</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Panduan survival mahasiswa rantau! Dapatkan informasi terkurasi soal rekomendasi Cafe pewe buat nugas, info Kost murah, sampai update perlombaan dan beasiswa.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-brand-green text-white flex items-center justify-center text-xs">✓</span> Rekomendasi Cafe & Tempat Fotokopi
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <span class="w-6 h-6 rounded-full bg-brand-green text-white flex items-center justify-center text-xs">✓</span> Info valid Beasiswa & Lomba Mahasiswa
+                        </li>
+                    </ul>
+                    <a href="#download" class="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-4 transition-all">
+                        Jelajahi Info Kampus <span class="text-xl">→</span>
+                    </a>
+                </div>
+                <div class="order-1 lg:order-2 bg-brand-cream rounded-[2.5rem] p-8 lg:p-12 relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy/10 to-transparent opacity-50 rounded-[2.5rem]"></div>
+                    <!-- Contoh Gambar Campus Hacks -->
+                    <img src="https://placehold.co/800x600/B8D433/1A4373?text=Campus+Hacks+UI%5Cn(Peta+Kost,+Review+Cafe,+Info+Beasiswa)" alt="Campus Hacks UI" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover border border-slate-200">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-navy p-4 rounded-xl shadow-xl border border-slate-700 flex items-center gap-3 z-20">
+                        <div class="text-3xl">☕</div>
+                        <div>
+                            <p class="text-xs text-slate-300 font-bold">Terkurasi</p>
+                            <p class="text-xl font-extrabold text-white">150+ Spot Nugas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works (Dark Navy) -->
+    <section class="bg-brand-navy py-24 relative overflow-hidden">
+        <!-- Abstract background shape -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full filter blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-block bg-slate-800 text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-slate-700">
+                    Sangat Mudah
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-white">Cuma 3 Langkah Buat Mulai Upgrade Diri Lo</h2>
+            </div>
+
+            <!-- Horizontal Steps Grid -->
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-slate-700 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-brand-orange text-white rounded-2xl flex items-center justify-center font-black text-3xl mb-6 shadow-xl shadow-orange-500/20 rotate-3">1</div>
+                    <h3 class="font-bold text-white text-xl mb-3">Buat Akun Gratis</h3>
+                    <p class="text-slate-400 text-sm max-w-xs">Daftar pake email kampus atau nomor HP. Setup profil singkat, cuma butuh 1 menit.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-brand-navy border-4 border-brand-orange text-brand-orange rounded-2xl flex items-center justify-center font-black text-3xl mb-6 -rotate-3 bg-slate-800">2</div>
+                    <h3 class="font-bold text-white text-xl mb-3">Pilih Mentor / Grup</h3>
+                    <p class="text-slate-400 text-sm max-w-xs">Cari Mentor Soft Skill sesuai kelemahan lo, atau langsung join grup maba se-fakultas.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-brand-green text-white rounded-2xl flex items-center justify-center font-black text-3xl mb-6 shadow-xl shadow-green-500/20 rotate-3">3</div>
+                    <h3 class="font-bold text-white text-xl mb-3">Mulai Upgrade Diri</h3>
+                    <p class="text-slate-400 text-sm max-w-xs">Booking sesi 1-on-1, diskusi bareng temen, dan nikmati masa kuliah dengan percaya diri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-brand-cream py-24" id="testimoni">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-navy">Kata Mereka yang Udah Upgrade Diri ✨</h2>
+                <p class="text-slate-500 mt-4 text-lg">Ribuan mahasiswa udah ngerasain impact-nya di dunia perkuliahan.</p>
+            </div>
+
+            <!-- 3 Column Grid for Desktop -->
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-2xl shrink-0">👩‍🎓</div>
+                        <div>
+                            <h4 class="font-bold text-brand-navy">Rania M.</h4>
+                            <p class="text-xs text-slate-500 font-medium">Mahasiswa Semester 3</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed italic">
+                        "Awalnya takut banget disuruh presentasi tugas. Setelah konsul 2 sesi soal *public speaking* di AdaptU, gila sih sekarang maju depan kelas udah PD abis! Makasih mentor Dimas!"
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center text-2xl shrink-0">🧑‍🎓</div>
+                        <div>
+                            <h4 class="font-bold text-brand-navy">Fahri</h4>
+                            <p class="text-xs text-slate-500 font-medium">Maba Rantau 2026</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed italic">
+                        "Fitur Campus Hacks-nya juara! Gua pendatang gatau tempat makan murah, buka AdaptU lsg dapet rekomendasi warteg sama cafe nugas yg wifi-nya ngebut buat begadang tugas."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center text-2xl shrink-0">👨‍🎓</div>
+                        <div>
+                            <h4 class="font-bold text-brand-navy">Kevin T.</h4>
+                            <p class="text-xs text-slate-500 font-medium">Aktivis BEM</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed italic">
+                        "Grup chatnya rapih banget, gak berisik kayak grup WA biasa. Disini gue nemu info lomba bussines plan dan nemu temen sekelompok yang satu frekuensi. Mantap AdaptU!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA (Wide Banner format) -->
+    <section class="bg-brand-cream px-6 lg:px-8 pb-24" id="download">
+        <div class="max-w-7xl mx-auto bg-brand-navy rounded-[3rem] p-12 lg:p-20 text-center shadow-2xl relative overflow-hidden flex flex-col items-center">
+            <!-- Decorations -->
+            <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-orange rounded-full filter blur-[120px] opacity-20 -mr-[20rem] -mt-[20rem]"></div>
+            <div class="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-500 rounded-full filter blur-[100px] opacity-20 -ml-[15rem] -mb-[15rem]"></div>
+            
+            <div class="w-20 h-20 bg-brand-orange text-white rounded-3xl flex items-center justify-center text-4xl mb-8 relative z-10 shadow-lg rotate-3">
+                🚀
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-white mb-6 relative z-10 max-w-3xl">Ready to Upgrade Your University Life?</h2>
+            <p class="text-lg text-slate-300 mb-10 relative z-10 max-w-2xl">
+                IPK penting, tapi soft skill dan network yang bakal bawa lo ke dunia kerja. Bangun itu semua bareng AdaptU mulai dari semester satu.
+            </p>
+            <button class="bg-brand-orange hover:bg-brand-orangeHover text-white px-10 py-5 rounded-2xl font-bold text-xl transition-all shadow-xl shadow-orange-500/40 relative z-10 hover:scale-105">
+                DAFTAR SEKARANG - GRATIS ➔
+            </button>
+        </div>
+    </section>
+
+    <!-- Standard Footer -->
+    <footer class="bg-white text-center py-10 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <img src="au_logo_transparent.png" alt="AdaptU Logo" class="h-8 w-auto object-contain grayscale hover:grayscale-0 transition">
+                <span class="font-bold text-brand-navy text-lg mt-0.5">AdaptU</span>
+            </div>
+            <p class="text-sm text-slate-500">© 2026 PT Generasi Adaptif. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-orange transition-colors">Privacy</a>
+                <a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-orange transition-colors">Terms</a>
+                <a href="#" class="text-sm font-semibold text-slate-500 hover:text-brand-orange transition-colors">Partnership</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts for the Mockup -->
+    <script>
+        const appToast = document.getElementById('appToast');
+        const toastMsg = document.getElementById('toastMsg');
+        let toastTimeout;
+
+        function showToast(message) {
+            toastMsg.innerText = message;
+            appToast.classList.remove('hidden');
+            appToast.classList.add('toast-animate');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                appToast.classList.add('hidden');
+                appToast.classList.remove('toast-animate');
+            }, 3000);
+        }
+
+        // Simulate booking mentor
+        window.bookMentor = function(mentorName, btnElement) {
+            // Prevent multiple clicks
+            if(btnElement.disabled) return;
+            
+            btnElement.disabled = true;
+            btnElement.innerText = "⏳ Memproses...";
+            btnElement.classList.replace('bg-brand-green', 'bg-slate-400');
+            
+            setTimeout(() => {
+                btnElement.innerText = "✅ Berhasil Booking";
+                btnElement.classList.replace('bg-slate-400', 'bg-brand-navy');
+                showToast("Sesi dengan Mentor " + mentorName + " berhasil dibuat!");
+                btnElement.disabled = false;
+            }, 800);
+        };
+
+        // Simulate joining group
+        window.joinGroup = function(btnElement) {
+            if(btnElement.disabled) return;
+            
+            btnElement.disabled = true;
+            btnElement.innerText = "⏳ Joining...";
+            
+            setTimeout(() => {
+                btnElement.innerText = "✅ Masuk Grup";
+                btnElement.classList.replace('bg-white', 'bg-brand-navy');
+                btnElement.classList.replace('text-brand-navy', 'text-white');
+                showToast("Berhasil masuk grup Fakultas Teknik!");
+            }, 800);
+        };
+
+        // Switch Tabs in Interactive Mockup
+        window.switchMockupTab = function(tabName) {
+            // Hide all views
+            document.getElementById('view-dashboard').classList.add('hidden');
+            document.getElementById('view-chat').classList.add('hidden');
+            document.getElementById('view-hacks').classList.add('hidden');
+            
+            // Reset tab colors
+            document.getElementById('tab-dashboard').classList.replace('text-brand-orange', 'text-slate-400');
+            document.getElementById('tab-chat').classList.replace('text-brand-orange', 'text-slate-400');
+            document.getElementById('tab-hacks').classList.replace('text-brand-orange', 'text-slate-400');
+            
+            // Show active view and highlight tab
+            document.getElementById('view-' + tabName).classList.remove('hidden');
+            document.getElementById('tab-' + tabName).classList.replace('text-slate-400', 'text-brand-orange');
+        };
+    </script>
+</body>
+</html>
